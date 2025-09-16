@@ -1,0 +1,17 @@
+# 部署命令集合 - 请在终端中依次执行
+
+# 1. 添加 GitHub 远程仓库（请替换为您的 GitHub 用户名）
+git remote add origin https://github.com/您的用户名/learning-roadmap-system.git
+
+# 2. 设置主分支
+git branch -M main
+
+# 3. 推送到 GitHub
+git push -u origin main
+
+# 4. 如果推送失败，可能需要先配置 Git 用户信息：
+git config --global user.name "您的姓名"
+git config --global user.email "您的邮箱"
+
+# 然后重新推送
+git push -u origin main
