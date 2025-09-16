@@ -1,0 +1,124 @@
+{
+    "id": "backend",
+    "name": "后端开发",
+    "icon": "⚙️",
+    "phases": [
+        {
+            "title": "基础阶段 (1-3个月)",
+            "skills": [
+                {
+                    "name": "Java基础",
+                    "desc": "OOP编程、集合框架、IO流、多线程",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "Python基础",
+                    "desc": "语法基础、数据结构、函数、模块",
+                    "difficulty": "easy",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "MySQL数据库",
+                    "desc": "SQL语法、数据库设计、索引优化",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "HTTP协议",
+                    "desc": "网络通信基础、请求响应机制",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "Linux基础",
+                    "desc": "命令行操作、文件系统、权限管理",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (3-6个月)",
+            "skills": [
+                {
+                    "name": "Spring Boot",
+                    "desc": "Java企业级开发框架、自动配置、微服务基础",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "Django/Flask",
+                    "desc": "Python Web框架、ORM、模板系统",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "Redis",
+                    "desc": "内存数据库与缓存、数据结构、持久化",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "RESTful API",
+                    "desc": "API设计规范、接口文档、版本控制",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "MyBatis/JPA",
+                    "desc": "ORM框架、数据库操作、SQL映射",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "JWT认证",
+                    "desc": "用户认证、权限控制、Token管理",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "微服务架构",
+                    "desc": "Spring Cloud/Dubbo、服务治理、配置中心",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "消息队列",
+                    "desc": "RabbitMQ/Kafka、异步处理、削峰填谷",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "分布式系统",
+                    "desc": "高并发架构设计、负载均衡、缓存策略",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "容器化",
+                    "desc": "Docker/Kubernetes、容器编排、CI/CD",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "数据库优化",
+                    "desc": "SQL调优、分库分表、读写分离",
+                    "difficulty": "hard",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "搜索引擎",
+                    "desc": "Elasticsearch、全文检索、数据分析",
+                    "difficulty": "hard",
+                    "time": "3-4周"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "id": "algorithm",
+    "name": "算法与数据结构",
+    "icon": "🧮",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "编程语言基础",
+                    "desc": "Java/Python/C++任选一门",
+                    "difficulty": "easy",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "基础数据结构",
+                    "desc": "数组、链表、栈、队列",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "基础算法",
+                    "desc": "排序、查找、递归、分治",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "时间复杂度分析",
+                    "desc": "大O表示法、算法效率分析",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-8个月)",
+            "skills": [
+                {
+                    "name": "树与图",
+                    "desc": "二叉树、平衡树、图的遍历、最短路径",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "动态规划",
+                    "desc": "状态转移、背包问题、最优子结构",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "贪心算法",
+                    "desc": "贪心策略、活动选择、哈夫曼编码",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "字符串算法",
+                    "desc": "KMP、字符串匹配、回文串",
+                    "difficulty": "hard",
+                    "time": "4-5周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (8个月以上)",
+            "skills": [
+                {
+                    "name": "高级数据结构",
+                    "desc": "线段树、树状数组、并查集、字典树",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "网络流算法",
+                    "desc": "最大流、最小割、费用流",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "计算几何",
+                    "desc": "凸包、线段相交、几何算法",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "数论与组合",
+                    "desc": "质数、欧拉函数、组合数学、概率算法",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                }
+            ]
+        }
+    ]
+}

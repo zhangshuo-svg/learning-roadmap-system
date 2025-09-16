@@ -1,0 +1,106 @@
+{
+    "id": "testing",
+    "name": "测试开发",
+    "icon": "🧪",
+    "phases": [
+        {
+            "title": "测试基础 (2-3个月)",
+            "skills": [
+                {
+                    "name": "软件测试理论",
+                    "desc": "测试方法、测试用例设计、缺陷管理",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "手工测试",
+                    "desc": "功能测试、兼容性测试、用户体验测试",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "Linux基础",
+                    "desc": "命令行操作、日志分析、环境搭建",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "数据库测试",
+                    "desc": "SQL查询、数据验证、性能测试",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "接口测试",
+                    "desc": "Postman、API测试、协议分析",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "测试管理工具",
+                    "desc": "Jira、TestLink、禅道使用",
+                    "difficulty": "easy",
+                    "time": "1-2周"
+                }
+            ]
+        },
+        {
+            "title": "自动化测试 (3-6个月)",
+            "skills": [
+                {
+                    "name": "Python测试开发",
+                    "desc": "unittest、pytest、测试框架搭建",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "Selenium自动化",
+                    "desc": "Web自动化测试、页面对象模式",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "Appium移动端",
+                    "desc": "Android/iOS自动化测试",
+                    "difficulty": "hard",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "接口自动化",
+                    "desc": "requests库、接口测试框架",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "高级测试技术 (6个月以上)",
+            "skills": [
+                {
+                    "name": "性能测试",
+                    "desc": "JMeter、LoadRunner、压力测试",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "安全测试",
+                    "desc": "渗透测试、漏洞扫描、安全工具",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "测试平台开发",
+                    "desc": "Django/Flask、测试平台架构",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "DevOps测试",
+                    "desc": "CI/CD、Docker、Jenkins集成",
+                    "difficulty": "hard",
+                    "time": "4-5周"
+                }
+            ]
+        }
+    ]
+}

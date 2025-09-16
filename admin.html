@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 程序员沉潜</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
+        .codes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .codes-table th,
+        .codes-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .codes-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .codes-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-used {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #667eea;
+            object-fit: cover;
+        }
+
+        .login-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #6c757d;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .login-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: 2px solid #dc3545;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+            border-color: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+        }
+
+        .device-code {
+            font-family: 'Courier New', monospace;
+            background: #e7f3ff;
+            color: #0066cc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: help;
+        }
+
+        .text-muted {
+            color: #6c757d;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #f8f9fa;
+            color: #495057;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .device-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .info-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .info-item label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+
+        .info-item span {
+            color: #2c3e50;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        .user-agent {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+
+        .modal-footer {
+            padding: 20px 25px;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .panel {
+                padding: 20px;
+            }
+            
+            .codes-table {
+                font-size: 0.85rem;
+            }
+            
+            .codes-table th,
+            .codes-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="verify.html" class="back-link">← 返回验证页面</a>
+        
+        <!-- 登录界面 -->
+        <div v-if="!isLoggedIn" class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <img src="https://youke1.picui.cn/s1/2025/09/16/68c90486d5204.jpeg" alt="程序员沉潜" class="login-avatar">
+                    <h1>管理员登录</h1>
+                    <p>请输入管理员密码访问后台</p>
+                </div>
+
+                <div v-if="loginAlert.show" :class="['alert', `alert-${loginAlert.type}`]">
+                    {{ loginAlert.message }}
+                </div>
+
+                <form @submit.prevent="login">
+                    <div class="form-group">
+                        <label class="form-label">管理员密码</label>
+                        <input 
+                            v-model="loginPassword" 
+                            type="password" 
+                            class="form-input" 
+                            placeholder="请输入管理员密码"
+                            :disabled="loginLoading"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" :disabled="loginLoading || !loginPassword">
+                        <span v-if="loginLoading" class="loading"></span>
+                        {{ loginLoading ? '验证中...' : '登录' }}
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>忘记密码？请联系程序员沉潜</p>
+                    <div class="contact-info">
+                        <span>抖音：69385006842</span> | <span>微信：ikwbj1113</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 管理后台主界面 -->
+        <div v-else class="admin-container">
+            <div class="admin-header">
+                <button @click="logout" class="logout-btn">退出登录</button>
+            </div>
+            <div class="header">
+                <h1>验证码管理后台</h1>
+                <p>管理粉丝验证码，控制学习路线访问权限</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">{{ stats.total }}</span>
+                    <span class="stat-label">总验证码</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{ stats.active }}</span>
+                    <span class="stat-label">有效验证码</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{ stats.expired }}</span>
+                    <span class="stat-label">已过期</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{ stats.used }}</span>
+                    <span class="stat-label">已使用</span>
+                </div>
+            </div>
+
+            <div v-if="alert.show" :class="['alert', `alert-${alert.type}`]">
+                {{ alert.message }}
+            </div>
+
+            <div class="main-content">
+                <!-- 生成验证码面板 -->
+                <div class="panel">
+                    <h2 class="panel-title">生成验证码</h2>
+                    
+                    <form @submit.prevent="generateCode">
+                        <div class="form-group">
+                            <label class="form-label">验证码数量</label>
+                            <input 
+                                v-model.number="generateForm.count" 
+                                type="number" 
+                                class="form-input" 
+                                min="1" 
+                                max="50"
+                                placeholder="输入要生成的数量"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">有效期</label>
+                            <select v-model="generateForm.expiry" class="form-select" required>
+                                <option value="">请选择有效期</option>
+                                <option value="1">1天</option>
+                                <option value="7">7天</option>
+                                <option value="30">30天</option>
+                                <option value="90">90天</option>
+                                <option value="0">永久有效</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">备注</label>
+                            <input 
+                                v-model="generateForm.note" 
+                                type="text" 
+                                class="form-input" 
+                                placeholder="可选，用于标识验证码用途"
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" :disabled="generating">
+                            <span v-if="generating" class="loading"></span>
+                            {{ generating ? '生成中...' : '生成验证码' }}
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 快速操作面板 -->
+                <div class="panel">
+                    <h2 class="panel-title">快速操作</h2>
+                    
+                    <div class="form-group">
+                        <button @click="exportCodes" class="btn btn-success" style="width: 100%; margin-bottom: 15px;">
+                            导出验证码列表
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <button @click="clearExpired" class="btn btn-warning" style="width: 100%; margin-bottom: 15px;">
+                            清理过期验证码
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <button @click="clearAll" class="btn btn-danger" style="width: 100%;" :disabled="codes.length === 0">
+                            清空所有验证码
+                        </button>
+                    </div>
+
+                    <div class="alert alert-info" style="margin-top: 20px;">
+                        <strong>提示：</strong><br>
+                        • 验证码为6位随机数字<br>
+                        • 每个验证码只能使用一次<br>
+                        • 过期验证码会自动失效<br>
+                        • 建议定期清理过期验证码
+                    </div>
+                </div>
+            </div>
+
+            <!-- 验证码列表 -->
+            <div class="panel" style="margin-top: 30px;">
+                <h2 class="panel-title">验证码列表</h2>
+                
+                <div class="search-box">
+                    <input 
+                        v-model="searchQuery" 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="搜索验证码或备注..."
+                    >
+                </div>
+
+                <div v-if="filteredCodes.length === 0" style="text-align: center; padding: 40px; color: #6c757d;">
+                    <p>{{ codes.length === 0 ? '暂无验证码' : '没有找到匹配的验证码' }}</p>
+                </div>
+
+                <table v-else class="codes-table">
+                    <thead>
+                        <tr>
+                            <th>验证码</th>
+                            <th>状态</th>
+                            <th>设备码</th>
+                            <th>创建时间</th>
+                            <th>使用时间</th>
+                            <th>过期时间</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="code in paginatedCodes" :key="code.code">
+                            <td><strong>{{ code.code }}</strong></td>
+                            <td>
+                                <span :class="['status-badge', `status-${code.status}`]">
+                                    {{ getStatusText(code.status) }}
+                                </span>
+                            </td>
+                            <td>
+                                <span v-if="code.deviceCode" class="device-code" :title="getDeviceTooltip(code)">
+                                    {{ code.deviceCode }}
+                                </span>
+                                <span v-else class="text-muted">-</span>
+                            </td>
+                            <td>{{ formatDate(code.createdAt) }}</td>
+                            <td>{{ code.usedAt ? formatDate(code.usedAt) : '-' }}</td>
+                            <td>{{ code.expiresAt ? formatDate(code.expiresAt) : '永久' }}</td>
+                            <td>{{ code.note || '-' }}</td>
+                            <td>
+                                <div class="actions">
+                                    <button 
+                                        @click="copyCode(code.code)" 
+                                        class="btn btn-primary btn-sm"
+                                        title="复制验证码"
+                                    >
+                                        复制
+                                    </button>
+                                    <button 
+                                        v-if="code.deviceCode"
+                                        @click="showDeviceInfo(code)" 
+                                        class="btn btn-success btn-sm"
+                                        title="查看设备信息"
+                                    >
+                                        设备
+                                    </button>
+                                    <button 
+                                        @click="deleteCode(code.code)" 
+                                        class="btn btn-danger btn-sm"
+                                        title="删除验证码"
+                                    >
+                                        删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 分页 -->
+                <div v-if="totalPages > 1" style="text-align: center; margin-top: 20px;">
+                    <button 
+                        @click="currentPage--" 
+                        :disabled="currentPage === 1"
+                        class="btn btn-primary btn-sm"
+                        style="margin: 0 5px;"
+                    >
+                        上一页
+                    </button>
+                    <span style="margin: 0 15px; color: #6c757d;">
+                        第 {{ currentPage }} 页，共 {{ totalPages }} 页
+                    </span>
+                    <button 
+                        @click="currentPage++" 
+                        :disabled="currentPage === totalPages"
+                        class="btn btn-primary btn-sm"
+                        style="margin: 0 5px;"
+                    >
+                        下一页
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设备信息弹窗 -->
+        <div v-if="deviceModal.show" class="modal-overlay" @click="closeDeviceModal">
+            <div class="modal-content" @click.stop>
+                <div class="modal-header">
+                    <h3>设备信息详情</h3>
+                    <button @click="closeDeviceModal" class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="device-info-grid">
+                        <div class="info-item">
+                            <label>验证码:</label>
+                            <span>{{ deviceModal.data.code }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>设备码:</label>
+                            <span class="device-code">{{ deviceModal.data.deviceCode }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>使用时间:</label>
+                            <span>{{ formatDate(deviceModal.data.usedAt) }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>操作系统:</label>
+                            <span>{{ getOSFromUserAgent(deviceModal.data.deviceInfo?.userAgent) }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>浏览器:</label>
+                            <span>{{ getBrowserFromUserAgent(deviceModal.data.deviceInfo?.userAgent) }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>屏幕分辨率:</label>
+                            <span>{{ deviceModal.data.deviceInfo?.screenResolution || '-' }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>语言:</label>
+                            <span>{{ deviceModal.data.deviceInfo?.language || '-' }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>时区:</label>
+                            <span>{{ deviceModal.data.deviceInfo?.timezone || '-' }}</span>
+                        </div>
+                        <div class="info-item full-width">
+                            <label>User Agent:</label>
+                            <span class="user-agent">{{ deviceModal.data.deviceInfo?.userAgent || '-' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button @click="copyDeviceCode(deviceModal.data.deviceCode)" class="btn btn-primary">
+                        复制设备码
+                    </button>
+                    <button @click="closeDeviceModal" class="btn btn-secondary">
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    // 登录相关
+                    isLoggedIn: false,
+                    loginPassword: '',
+                    loginLoading: false,
+                    loginAlert: {
+                        show: false,
+                        type: '',
+                        message: ''
+                    },
+                    adminPassword: 'admin123456', // 管理员密码，实际使用时应该加密存储
+                    
+                    // 原有数据
+                    codes: [],
+                    searchQuery: '',
+                    currentPage: 1,
+                    pageSize: 10,
+                    generating: false,
+                    generateForm: {
+                        count: 1,
+                        expiry: '',
+                        note: ''
+                    },
+                    alert: {
+                        show: false,
+                        type: '',
+                        message: ''
+                    },
+                    deviceModal: {
+                        show: false,
+                        data: {}
+                    }
+                }
+            },
+            computed: {
+                stats() {
+                    const now = new Date();
+                    return {
+                        total: this.codes.length,
+                        active: this.codes.filter(c => c.status === 'active' && (!c.expiresAt || new Date(c.expiresAt) > now)).length,
+                        expired: this.codes.filter(c => c.expiresAt && new Date(c.expiresAt) <= now).length,
+                        used: this.codes.filter(c => c.status === 'used').length
+                    };
+                },
+                filteredCodes() {
+                    if (!this.searchQuery) return this.codes;
+                    
+                    const query = this.searchQuery.toLowerCase();
+                    return this.codes.filter(code => 
+                        code.code.includes(query) || 
+                        (code.note && code.note.toLowerCase().includes(query))
+                    );
+                },
+                totalPages() {
+                    return Math.ceil(this.filteredCodes.length / this.pageSize);
+                },
+                paginatedCodes() {
+                    const start = (this.currentPage - 1) * this.pageSize;
+                    const end = start + this.pageSize;
+                    return this.filteredCodes.slice(start, end);
+                }
+            },
+            mounted() {
+                this.checkLoginStatus();
+                if (this.isLoggedIn) {
+                    this.loadCodes();
+                    this.updateExpiredCodes();
+                }
+            },
+            methods: {
+                // 登录相关方法
+                checkLoginStatus() {
+                    const loginStatus = localStorage.getItem('adminLoggedIn');
+                    const loginTime = localStorage.getItem('adminLoginTime');
+                    
+                    if (loginStatus === 'true' && loginTime) {
+                        const now = new Date().getTime();
+                        const loginTimestamp = parseInt(loginTime);
+                        const sessionDuration = 24 * 60 * 60 * 1000; // 24小时
+                        
+                        if (now - loginTimestamp < sessionDuration) {
+                            this.isLoggedIn = true;
+                            this.loadCodes();
+                            this.updateExpiredCodes();
+                        } else {
+                            this.logout();
+                        }
+                    }
+                },
+                
+                async login() {
+                    if (!this.loginPassword) {
+                        this.showLoginAlert('error', '请输入管理员密码');
+                        return;
+                    }
+
+                    this.loginLoading = true;
+                    
+                    // 模拟网络延迟
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    if (this.loginPassword === this.adminPassword) {
+                        this.isLoggedIn = true;
+                        localStorage.setItem('adminLoggedIn', 'true');
+                        localStorage.setItem('adminLoginTime', new Date().getTime().toString());
+                        
+                        this.showLoginAlert('success', '登录成功！正在进入管理后台...');
+                        
+                        setTimeout(() => {
+                            this.loadCodes();
+                            this.updateExpiredCodes();
+                        }, 1500);
+                    } else {
+                        this.showLoginAlert('error', '密码错误，请重试');
+                    }
+                    
+                    this.loginLoading = false;
+                    this.loginPassword = '';
+                },
+                
+                logout() {
+                    this.isLoggedIn = false;
+                    localStorage.removeItem('adminLoggedIn');
+                    localStorage.removeItem('adminLoginTime');
+                    this.loginPassword = '';
+                    this.codes = [];
+                    this.showLoginAlert('success', '已安全退出');
+                },
+                
+                showLoginAlert(type, message) {
+                    this.loginAlert = {
+                        show: true,
+                        type,
+                        message
+                    };
+                    
+                    setTimeout(() => {
+                        this.loginAlert.show = false;
+                    }, 5000);
+                },
+                
+                // 原有方法
+                loadCodes() {
+                    const stored = localStorage.getItem('fansCodes');
+                    if (stored) {
+                        this.codes = JSON.parse(stored);
+                    }
+                },
+                saveCodes() {
+                    localStorage.setItem('fansCodes', JSON.stringify(this.codes));
+                },
+                generateRandomCode() {
+                    return Math.floor(100000 + Math.random() * 900000).toString();
+                },
+                async generateCode() {
+                    if (!this.generateForm.expiry) {
+                        this.showAlert('error', '请选择有效期');
+                        return;
+                    }
+
+                    this.generating = true;
+                    
+                    try {
+                        const newCodes = [];
+                        const existingCodes = this.codes.map(c => c.code);
+                        
+                        for (let i = 0; i < this.generateForm.count; i++) {
+                            let code;
+                            do {
+                                code = this.generateRandomCode();
+                            } while (existingCodes.includes(code) || newCodes.includes(code));
+                            
+                            const now = new Date();
+                            let expiresAt = null;
+                            
+                            if (this.generateForm.expiry > 0) {
+                                expiresAt = new Date(now.getTime() + this.generateForm.expiry * 24 * 60 * 60 * 1000);
+                            }
+                            
+                            newCodes.push({
+                                code,
+                                status: 'active',
+                                createdAt: now.toISOString(),
+                                expiresAt: expiresAt ? expiresAt.toISOString() : null,
+                                note: this.generateForm.note || null
+                            });
+                        }
+                        
+                        this.codes.unshift(...newCodes);
+                        this.saveCodes();
+                        
+                        this.showAlert('success', `成功生成 ${this.generateForm.count} 个验证码`);
+                        
+                        // 重置表单
+                        this.generateForm = {
+                            count: 1,
+                            expiry: '',
+                            note: ''
+                        };
+                        
+                    } catch (error) {
+                        console.error('生成验证码失败:', error);
+                        this.showAlert('error', '生成验证码失败，请重试');
+                    } finally {
+                        this.generating = false;
+                    }
+                },
+                deleteCode(code) {
+                    if (confirm(`确定要删除验证码 ${code} 吗？`)) {
+                        this.codes = this.codes.filter(c => c.code !== code);
+                        this.saveCodes();
+                        this.showAlert('success', '验证码已删除');
+                    }
+                },
+                clearExpired() {
+                    const now = new Date();
+                    const beforeCount = this.codes.length;
+                    this.codes = this.codes.filter(c => !c.expiresAt || new Date(c.expiresAt) > now);
+                    const removedCount = beforeCount - this.codes.length;
+                    
+                    if (removedCount > 0) {
+                        this.saveCodes();
+                        this.showAlert('success', `已清理 ${removedCount} 个过期验证码`);
+                    } else {
+                        this.showAlert('info', '没有过期的验证码需要清理');
+                    }
+                },
+                clearAll() {
+                    if (confirm('确定要清空所有验证码吗？此操作不可恢复！')) {
+                        this.codes = [];
+                        this.saveCodes();
+                        this.showAlert('success', '已清空所有验证码');
+                    }
+                },
+                exportCodes() {
+                    if (this.codes.length === 0) {
+                        this.showAlert('error', '没有验证码可以导出');
+                        return;
+                    }
+                    
+                    const csvContent = [
+                        ['验证码', '状态', '创建时间', '过期时间', '备注'].join(','),
+                        ...this.codes.map(code => [
+                            code.code,
+                            this.getStatusText(code.status),
+                            this.formatDate(code.createdAt),
+                            code.expiresAt ? this.formatDate(code.expiresAt) : '永久',
+                            code.note || ''
+                        ].join(','))
+                    ].join('\n');
+                    
+                    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = `验证码列表_${new Date().toISOString().split('T')[0]}.csv`;
+                    link.click();
+                    
+                    this.showAlert('success', '验证码列表已导出');
+                },
+                updateExpiredCodes() {
+                    const now = new Date();
+                    let updated = false;
+                    
+                    this.codes.forEach(code => {
+                        if (code.status === 'active' && code.expiresAt && new Date(code.expiresAt) <= now) {
+                            code.status = 'expired';
+                            updated = true;
+                        }
+                    });
+                    
+                    if (updated) {
+                        this.saveCodes();
+                    }
+                },
+                copyCode(code) {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(code).then(() => {
+                            this.showAlert('success', '验证码已复制到剪贴板');
+                        }).catch(() => {
+                            this.fallbackCopy(code);
+                        });
+                    } else {
+                        this.fallbackCopy(code);
+                    }
+                },
+                fallbackCopy(text) {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    textArea.style.position = "fixed";
+                    textArea.style.opacity = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    
+                    try {
+                        const successful = document.execCommand('copy');
+                        if (successful) {
+                            this.showAlert('success', '验证码已复制到剪贴板');
+                        } else {
+                            this.showAlert('error', '复制失败，请手动复制');
+                        }
+                    } catch (err) {
+                        this.showAlert('error', '复制失败，请手动复制');
+                    }
+                    
+                    document.body.removeChild(textArea);
+                },
+                getStatusText(status) {
+                    const statusMap = {
+                        'active': '有效',
+                        'used': '已使用',
+                        'expired': '已过期'
+                    };
+                    return statusMap[status] || '未知';
+                },
+                formatDate(dateString) {
+                    if (!dateString) return '-';
+                    const date = new Date(dateString);
+                    return date.toLocaleString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                },
+                showAlert(type, message) {
+                    this.alert = {
+                        show: true,
+                        type,
+                        message
+                    };
+                    
+                    setTimeout(() => {
+                        this.alert.show = false;
+                    }, 5000);
+                },
+
+                // 设备信息相关方法
+                showDeviceInfo(code) {
+                    this.deviceModal = {
+                        show: true,
+                        data: code
+                    };
+                },
+
+                closeDeviceModal() {
+                    this.deviceModal.show = false;
+                },
+
+                copyDeviceCode(deviceCode) {
+                    this.copyCode(deviceCode);
+                },
+
+                getDeviceTooltip(code) {
+                    if (!code.deviceInfo) return '设备码: ' + code.deviceCode;
+                    
+                    return `设备码: ${code.deviceCode}
+` +
+                           `系统: ${this.getOSFromUserAgent(code.deviceInfo.userAgent)}
+` +
+                           `浏览器: ${this.getBrowserFromUserAgent(code.deviceInfo.userAgent)}
+` +
+                           `分辨率: ${code.deviceInfo.screenResolution || '-'}
+` +
+                           `使用时间: ${this.formatDate(code.usedAt)}`;
+                },
+
+                getOSFromUserAgent(userAgent) {
+                    if (!userAgent) return '未知';
+                    
+                    if (userAgent.includes('Windows NT 10.0')) return 'Windows 10/11';
+                    if (userAgent.includes('Windows NT 6.3')) return 'Windows 8.1';
+                    if (userAgent.includes('Windows NT 6.1')) return 'Windows 7';
+                    if (userAgent.includes('Mac OS X')) return 'macOS';
+                    if (userAgent.includes('Linux')) return 'Linux';
+                    if (userAgent.includes('Android')) return 'Android';
+                    if (userAgent.includes('iPhone')) return 'iOS';
+                    
+                    return '未知系统';
+                },
+
+                getBrowserFromUserAgent(userAgent) {
+                    if (!userAgent) return '未知';
+                    
+                    if (userAgent.includes('Edg/')) return 'Microsoft Edge';
+                    if (userAgent.includes('Chrome/') && !userAgent.includes('Edg/')) return 'Google Chrome';
+                    if (userAgent.includes('Firefox/')) return 'Mozilla Firefox';
+                    if (userAgent.includes('Safari/') && !userAgent.includes('Chrome/')) return 'Safari';
+                    if (userAgent.includes('Opera/')) return 'Opera';
+                    
+                    return '未知浏览器';
+                }
+            },
+            watch: {
+                searchQuery() {
+                    this.currentPage = 1;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+    "id": "product",
+    "name": "产品经理技术",
+    "icon": "📋",
+    "phases": [
+        {
+            "title": "产品基础 (2-3个月)",
+            "skills": [
+                {
+                    "name": "产品思维",
+                    "desc": "用户需求分析、产品规划、商业模式",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "需求分析",
+                    "desc": "用户调研、需求收集、优先级排序",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "原型设计",
+                    "desc": "Axure、Figma、墨刀使用",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "项目管理",
+                    "desc": "敏捷开发、Scrum、项目协调",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "技术产品能力 (3-6个月)",
+            "skills": [
+                {
+                    "name": "技术基础",
+                    "desc": "前后端基础、数据库、API理解",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "数据分析",
+                    "desc": "SQL基础、数据可视化、用户行为分析",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "用户体验设计",
+                    "desc": "交互设计、用户测试、A/B测试",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "产品运营",
+                    "desc": "用户增长、内容运营、活动策划",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                }
+            ]
+        },
+        {
+            "title": "高级产品能力 (6个月以上)",
+            "skills": [
+                {
+                    "name": "商业分析",
+                    "desc": "市场分析、竞品分析、商业模式设计",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "AI产品设计",
+                    "desc": "机器学习产品、推荐系统、智能化产品",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "平台产品设计",
+                    "desc": "B端产品、SaaS产品、平台架构设计",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "产品战略",
+                    "desc": "产品规划、团队管理、跨部门协作",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                }
+            ]
+        }
+    ]
+}

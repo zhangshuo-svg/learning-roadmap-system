@@ -1,0 +1,94 @@
+{
+    "id": "gamedev",
+    "name": "游戏开发",
+    "icon": "🎮",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "C#编程",
+                    "desc": "面向对象编程、语法基础、.NET框架",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "Unity基础",
+                    "desc": "游戏引擎、场景搭建、组件系统、脚本编程",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "游戏设计基础",
+                    "desc": "游戏机制、关卡设计、用户体验",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "2D游戏开发",
+                    "desc": "精灵动画、碰撞检测、物理系统",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-6个月)",
+            "skills": [
+                {
+                    "name": "3D游戏开发",
+                    "desc": "3D建模、材质贴图、光照系统、相机控制",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "游戏AI",
+                    "desc": "状态机、行为树、寻路算法、决策系统",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "网络游戏开发",
+                    "desc": "多人游戏、网络同步、服务器架构",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "游戏优化",
+                    "desc": "性能优化、内存管理、渲染优化",
+                    "difficulty": "hard",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "虚幻引擎",
+                    "desc": "UE5开发、蓝图系统、C++编程、渲染管线",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "游戏引擎架构",
+                    "desc": "引擎设计、渲染系统、物理引擎、音频系统",
+                    "difficulty": "hard",
+                    "time": "10-12周"
+                },
+                {
+                    "name": "VR/AR开发",
+                    "desc": "虚拟现实、增强现实、交互设计、空间计算",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "游戏发布与运营",
+                    "desc": "平台发布、数据分析、用户留存、商业化",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        }
+    ]
+}

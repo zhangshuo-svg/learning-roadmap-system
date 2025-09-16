@@ -1,0 +1,23 @@
+{
+  "name": "learning-roadmap-system",
+  "version": "1.0.0",
+  "description": "计算机学习路线验证码系统",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "learning",
+    "roadmap",
+    "verification",
+    "education"
+  ],
+  "author": "程序员沉潜",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

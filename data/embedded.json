@@ -1,0 +1,94 @@
+{
+    "id": "embedded",
+    "name": "嵌入式开发",
+    "icon": "🔧",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "C/C++编程",
+                    "desc": "系统编程语言",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "单片机原理",
+                    "desc": "STM32/Arduino",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "电路基础",
+                    "desc": "模拟与数字电路",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "实时操作系统",
+                    "desc": "FreeRTOS/RT-Thread FreeRTOS / RT-Thread",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-8个月)",
+            "skills": [
+                {
+                    "name": "ARM架构",
+                    "desc": "Cortex-M系列",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "Linux驱动",
+                    "desc": "设备驱动开发",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "通信协议",
+                    "desc": "I2C/SPI/UART/I2C / SPI / UART /",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "IoT开发",
+                    "desc": "物联网应用技术",
+                    "difficulty": "medium",
+                    "time": "5-6周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (8个月以上)",
+            "skills": [
+                {
+                    "name": "系统优化",
+                    "desc": "性能调优、功耗管理",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "FPGA开发",
+                    "desc": "Verilog/VHDL、数字信号处理",
+                    "difficulty": "hard",
+                    "time": "10-12周"
+                },
+                {
+                    "name": "AI边缘计算",
+                    "desc": "TensorFlow Lite、模型部署",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "产品化设计",
+                    "desc": "PCB设计、量产工艺、测试验证",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                }
+            ]
+        }
+    ]
+}

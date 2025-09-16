@@ -1,0 +1,94 @@
+{
+    "id": "datascience",
+    "name": "数据科学",
+    "icon": "📊",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "Python数据分析",
+                    "desc": "NumPy、Pandas、Matplotlib、Seaborn数据处理",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "统计学基础",
+                    "desc": "描述统计、推断统计、假设检验、回归分析",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "SQL数据库",
+                    "desc": "数据查询、聚合函数、连接操作、窗口函数",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "数据可视化",
+                    "desc": "图表设计、交互式可视化、仪表板制作",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-6个月)",
+            "skills": [
+                {
+                    "name": "机器学习",
+                    "desc": "监督学习、无监督学习、模型评估、特征工程",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "深度学习",
+                    "desc": "神经网络、CNN、RNN、模型训练与调优",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "大数据处理",
+                    "desc": "Spark、Hadoop、分布式计算、数据管道",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "时间序列分析",
+                    "desc": "趋势分析、季节性、预测模型、ARIMA",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "MLOps工程",
+                    "desc": "模型部署、监控、版本管理、A/B测试",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "推荐系统",
+                    "desc": "协同过滤、内容推荐、深度推荐、实时推荐",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "自然语言处理",
+                    "desc": "文本挖掘、情感分析、命名实体识别、大模型",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "商业智能",
+                    "desc": "数据仓库、OLAP、商业分析、决策支持系统",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                }
+            ]
+        }
+    ]
+}

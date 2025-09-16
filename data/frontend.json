@@ -1,0 +1,154 @@
+{
+    "id": "frontend",
+    "name": "前端开发",
+    "icon": "🎨",
+    "phases": [
+        {
+            "title": "基础阶段 (1-3个月)",
+            "skills": [
+                {
+                    "name": "HTML5",
+                    "desc": "网页结构与语义化标签，掌握表单、多媒体等新特性",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "CSS3",
+                    "desc": "样式设计、Flexbox、Grid布局、动画效果",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "JavaScript",
+                    "desc": "ES6+语法、DOM操作、事件处理、异步编程",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "Git",
+                    "desc": "版本控制、分支管理、团队协作工作流",
+                    "difficulty": "easy",
+                    "time": "1-2周"
+                },
+                {
+                    "name": "响应式设计",
+                    "desc": "移动端适配、媒体查询、Bootstrap框架",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "浏览器开发者工具",
+                    "desc": "调试技巧、性能分析、网络监控",
+                    "difficulty": "easy",
+                    "time": "1周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (3-6个月)",
+            "skills": [
+                {
+                    "name": "Vue.js 3",
+                    "desc": "组合式API、响应式系统、路由管理、状态管理",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "React 18",
+                    "desc": "Hooks、Context、Suspense、并发特性",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "TypeScript",
+                    "desc": "类型系统、接口定义、泛型、装饰器",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "Webpack/Vite",
+                    "desc": "模块打包、代码分割、热更新、优化配置",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "Sass/Less",
+                    "desc": "CSS预处理器、变量、混入、嵌套",
+                    "difficulty": "easy",
+                    "time": "1-2周"
+                },
+                {
+                    "name": "Element Plus/Ant Design",
+                    "desc": "组件库使用、主题定制、表单验证",
+                    "difficulty": "easy",
+                    "time": "2周"
+                },
+                {
+                    "name": "Axios/Fetch",
+                    "desc": "HTTP请求、拦截器、错误处理",
+                    "difficulty": "easy",
+                    "time": "1周"
+                },
+                {
+                    "name": "ESLint/Prettier",
+                    "desc": "代码规范、格式化、团队协作",
+                    "difficulty": "easy",
+                    "time": "1周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "Node.js",
+                    "desc": "服务端开发、Express/Koa框架、中间件",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "微前端架构",
+                    "desc": "qiankun、Module Federation、应用拆分",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "性能优化",
+                    "desc": "代码分割、懒加载、缓存策略、CDN",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "前端工程化",
+                    "desc": "CI/CD、自动化测试、代码质量管控",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "PWA技术",
+                    "desc": "Service Worker、离线缓存、推送通知",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "WebAssembly",
+                    "desc": "高性能Web应用、C/C++集成",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "前端监控",
+                    "desc": "错误监控、性能监控、用户行为分析",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                },
+                {
+                    "name": "跨端开发",
+                    "desc": "Electron、Tauri桌面应用开发",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        }
+    ]
+}

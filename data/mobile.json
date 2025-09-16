@@ -1,0 +1,83 @@
+{
+    "id": "mobile",
+    "name": "移动端开发",
+    "icon": "📱",
+    "phases": [
+        {
+            "title": "基础阶段 (1-3个月)",
+            "skills": [
+                {
+                    "name": "Android开发",
+                    "desc": "Activity、Fragment、布局管理、数据存储",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "Java/Kotlin",
+                    "desc": "Android开发语言、面向对象、协程",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "iOS开发",
+                    "desc": "UIKit、Storyboard、Auto Layout、MVC架构",
+                    "difficulty": "medium",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "Swift语言",
+                    "desc": "iOS开发语言、可选类型、闭包、协议",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "UI设计基础",
+                    "desc": "移动端界面设计、用户体验、设计规范",
+                    "difficulty": "easy",
+                    "time": "2-3周"
+                }
+            ]
+        },
+        {
+            "title": "跨平台开发 (2-4个月)",
+            "skills": [
+                {
+                    "name": "Flutter",
+                    "desc": "Google跨平台框架、Dart语言、Widget系统",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "React Native",
+                    "desc": "Facebook跨平台方案、JSX、原生模块",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "uni-app",
+                    "desc": "国产跨平台框架、Vue语法、多端发布",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "微信小程序",
+                    "desc": "小程序开发、WXML、WXSS、云开发",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "Taro框架",
+                    "desc": "京东多端统一开发框架、React语法",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "Cordova/PhoneGap",
+                    "desc": "混合应用开发、WebView、插件系统",
+                    "difficulty": "medium",
+                    "time": "2-3周"
+                }
+            ]
+        }
+    ]
+}

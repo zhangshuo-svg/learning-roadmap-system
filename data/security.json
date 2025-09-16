@@ -1,0 +1,94 @@
+{
+    "id": "security",
+    "name": "网络安全",
+    "icon": "🔒",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "网络基础",
+                    "desc": "TCP/IP协议、网络拓扑、路由交换、防火墙",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "操作系统安全",
+                    "desc": "Windows/Linux安全、权限管理、系统加固",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "密码学基础",
+                    "desc": "对称加密、非对称加密、哈希算法、数字签名",
+                    "difficulty": "hard",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "Web安全基础",
+                    "desc": "HTTP/HTTPS、SQL注入、XSS、CSRF攻击",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-6个月)",
+            "skills": [
+                {
+                    "name": "渗透测试",
+                    "desc": "漏洞扫描、渗透工具、社会工程学、报告编写",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "恶意软件分析",
+                    "desc": "病毒分析、逆向工程、沙箱技术、行为分析",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "应急响应",
+                    "desc": "事件处理、取证分析、日志分析、威胁狩猎",
+                    "difficulty": "hard",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "安全工具使用",
+                    "desc": "Nmap、Burp Suite、Metasploit、Wireshark",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "高级渗透技术",
+                    "desc": "内网渗透、域渗透、免杀技术、0day挖掘",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "安全架构设计",
+                    "desc": "企业安全架构、零信任、安全运营中心SOC",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "云安全",
+                    "desc": "云平台安全、容器安全、DevSecOps、云原生安全",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "AI安全",
+                    "desc": "机器学习安全、对抗样本、模型安全、隐私保护",
+                    "difficulty": "hard",
+                    "time": "4-5周"
+                }
+            ]
+        }
+    ]
+}

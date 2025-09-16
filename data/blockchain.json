@@ -1,0 +1,94 @@
+{
+    "id": "blockchain",
+    "name": "区块链开发",
+    "icon": "⛓️",
+    "phases": [
+        {
+            "title": "基础阶段 (2-4个月)",
+            "skills": [
+                {
+                    "name": "区块链原理",
+                    "desc": "分布式账本、共识机制、哈希算法、数字签名",
+                    "difficulty": "medium",
+                    "time": "4-6周"
+                },
+                {
+                    "name": "加密货币基础",
+                    "desc": "比特币、以太坊、钱包、交易机制",
+                    "difficulty": "easy",
+                    "time": "3-4周"
+                },
+                {
+                    "name": "Solidity编程",
+                    "desc": "智能合约语言、语法基础、开发环境",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "Web3基础",
+                    "desc": "去中心化应用、MetaMask、Web3.js",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        },
+        {
+            "title": "进阶阶段 (4-6个月)",
+            "skills": [
+                {
+                    "name": "智能合约开发",
+                    "desc": "ERC标准、合约安全、Gas优化、测试框架",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "DeFi协议开发",
+                    "desc": "去中心化金融、流动性挖矿、AMM、借贷协议",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "NFT开发",
+                    "desc": "非同质化代币、元数据、市场合约、版税机制",
+                    "difficulty": "medium",
+                    "time": "4-5周"
+                },
+                {
+                    "name": "跨链技术",
+                    "desc": "跨链桥、多链部署、Layer2解决方案",
+                    "difficulty": "hard",
+                    "time": "4-6周"
+                }
+            ]
+        },
+        {
+            "title": "高级阶段 (6个月以上)",
+            "skills": [
+                {
+                    "name": "区块链架构设计",
+                    "desc": "共识算法、分片技术、性能优化、安全架构",
+                    "difficulty": "hard",
+                    "time": "8-10周"
+                },
+                {
+                    "name": "企业级区块链",
+                    "desc": "Hyperledger Fabric、联盟链、许可链",
+                    "difficulty": "hard",
+                    "time": "6-8周"
+                },
+                {
+                    "name": "区块链安全",
+                    "desc": "智能合约审计、安全漏洞、攻击防护",
+                    "difficulty": "hard",
+                    "time": "5-6周"
+                },
+                {
+                    "name": "DAO治理",
+                    "desc": "去中心化自治组织、治理代币、投票机制",
+                    "difficulty": "medium",
+                    "time": "3-4周"
+                }
+            ]
+        }
+    ]
+}
